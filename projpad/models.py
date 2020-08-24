@@ -40,8 +40,6 @@ class Venda(models.Model):
 
 	vendedor = models.CharField(max_length=50)
 
-	fkproduto = models.ForeignKey(Produto, on_delete=models.CASCADE)
-
 	quantidade = models.FloatField()
 
 	dtcriacao = models.DateTimeField(editable=False)
@@ -64,10 +62,6 @@ class Venda_Produto(models.Model):
 
     def __str__(self):
         return str(self.fkvenda) +' prod. '+ str(self.fkproduto)
-
-
-
-
 
 
 objects = models.Manager()
