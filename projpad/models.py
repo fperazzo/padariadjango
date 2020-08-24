@@ -58,4 +58,16 @@ class Venda(models.Model):
 
 
 
+class Venda_Produto(models.Model):
+    fkvenda = models.ForeignKey(Venda, on_delete=models.CASCADE)
+    fkproduto = models.ForeignKey(Produto, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.fkvenda) +' prod. '+ str(self.fkproduto)
+
+
+
+
+
+
 objects = models.Manager()
