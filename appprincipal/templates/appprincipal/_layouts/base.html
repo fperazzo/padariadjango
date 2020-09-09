@@ -8,10 +8,15 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.0.1">
     <title>Padaria</title>
-
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="shortcut icon" href="{% static 'apppricipal/media/logo.jpg' %}" type="image/jpg">
        <!-- Bootstrap appprincipal CSS -->
+      
     <link rel="stylesheet" type="text/css" href="{%static 'appprincipal/css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{%static 'appprincipal/css/sticky-footer-navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'appprincipal/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'appprincipal/css/master.css' %}">
   </head>
 
   <!-- Fixed navbar -->
@@ -20,8 +25,8 @@
     <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #808080;">
       <div class="container">
-      <a class="navbar-brand" href="#">
-      <!-- <img src="{%static 'appprincipal/img/favicon.ico' %}" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">  -->
+      <a class="navbar-brand" href="{% url 'appprincipal:index' %}">
+      <img src="{%static 'appprincipal/media/logo.jpg' %}" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
     Padaria Boa Sorte
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,13 +35,19 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{% url 'appprincipal:index' %}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Minhas Vendas</a>
+              <a class="nav-link" href="{% url 'appprincipal:lista' %}">Minhas Vendas</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Nova Venda</a>
+              <a class="nav-link" href="{% url 'appprincipal:nova_venda' %}">Nova Venda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'appprincipal:tipoprod' %}">Novo Produto</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'appprincipal:cargo' %}">Cadastrar Funcionario</a>
             </li>
 
         </div>
@@ -62,7 +73,12 @@
         {% else %}
         <a href="{% url 'login'%}?next={{request.path}}">Fazer Login</a>
         {% endif %}
-          - Em caso de dúvidas: fernando_perazzo@yahoo.com.br
+          - Em caso de dúvidas: fernando_perazzo@yahoo.com.br 
+        <div class="small-print">
+        	<div class="container">
+        		<a href="{% url 'appprincipal:termo_cond' %}">Termos &amp; Condições</a> | <a href="{% url 'appprincipal:pol' %}">Política de privacidade</a> | <a href="{% url 'appprincipal:cont' %}">Contato</a></p>
+        	</div>
+        </div>
     </span>
     </div>
   </footer>

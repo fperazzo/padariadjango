@@ -1,0 +1,29 @@
+<!-- Estendemos do template base  -->
+{% extends "appprincipal/_layouts/base.html" %}
+
+{% load widget_tweaks %}
+
+<!-- Bloco de conteúdo da nossa página -->
+
+    {% block conteudo %}
+    
+    
+    
+<div class="container mt-3">
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+    <label type="text" value="insira nome do vendedor">VENDEDOR</label>
+    {% render_field form.vendedor %}
+    </div>
+    <div class="form-group">
+      <label type="text" value="insira quantidade do produto">quantidade</label>
+      {% render_field form.quantidade %}
+    </div>
+    <button type="submit">Cadastrar</button>
+
+  </form>
+</div>
+
+    
+    {% endblock %}

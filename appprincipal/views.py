@@ -1,18 +1,96 @@
 from django.shortcuts import render, redirect
-from django.views.generic import View, TemplateView, CreateView, UpdateView, DetailView
+from django.views.generic import View, TemplateView, CreateView, UpdateView, ListView, DeleteView
 from django.urls import reverse_lazy
 from django.http import HttpResponse, JsonResponse
+from projpad.models import *
 from django.contrib.auth.mixins import LoginRequiredMixin #para Classes Based Views
 from django.contrib.auth.decorators import login_required #para Functions Based Views
+from appprincipal import views
+from appprincipal.forms import *
 
 
 import json
 import datetime
 
 from projpad.models import TipoProduto, TipoCargo, Produto, Funcionario, Venda
-#from appprincipal.forms import Orc_pt1_Form
 
 
 # Create your views here.
 class IndexTemplateView(TemplateView):
-    template_name = "appprincipal/index.html"
+    template_name = "index.html"
+
+class ProdListView(ListView):
+    template_name = "vendas.html"
+    model = Produto
+    context_object_name = "produtos"
+    
+
+class AboutView(View):
+    template = "about.html"
+    def get (self, request):
+
+        return render(request, self.template)
+
+class Cadast_TipoProdCreateView(CreateView):
+    template_name = "cadast_prod.html"
+    model = TipoProduto
+    form_class = RegistrarTipoProdutoForm
+    success_url = reverse_lazy("appprincipal:produto")
+
+class Cadast_ProdCreateView(CreateView):
+    template_name = "prod_cad.html"
+    model = Produto
+    form_class = RegistrarProdutoForm
+    success_url = reverse_lazy("appprincipal:index")
+
+class ProdListView(ListView):
+    template_name = "vendas.html"
+    model = Produto
+    context_object_name = "produtos"
+
+class CargoCreateView(CreateView):
+    template_name = "cadast_cargo.html"
+    model = TipoCargo
+    form_class = CargoForm
+    success_url = reverse_lazy("appprincipal:func_cad")
+
+class FuncionarioCreateView(CreateView):
+    template_name = "cadastrar_func.html"
+    model = Funcionario
+    form_class = FuncionarioForm
+    success_url = reverse_lazy("appprincipal:index")
+
+class NewVendaCreateView(CreateView):
+    template_name = "nova_venda.html"
+    model = Venda
+    form_class = RegistrarVendaForm
+    success_url = reverse_lazy("appprincipal:index")
+
+class TermoView(View):
+    template = "termo.html"
+    def get (self, request):
+
+        return render(request, self.template)
+
+class PolView(View):
+    template = "pol.html"
+    def get (self, request):
+
+        return render(request, self.template)
+
+class ContView(View):
+    template = "cont.html"
+    def get (self, request):
+
+        return render(request, self.template)
+
+class VendaDeleteView(DeleteView):
+    template_name = "exclui_venda.html"
+    model = Produto
+    context_object_name =  'produto'
+    success_url = reverse_lazy("appprincipal:index")
+
+class VendProdListView(ListView):
+    template_name = "venda_prod.html"
+    model = Venda_Produto
+    context_object_name = "lista_venda"

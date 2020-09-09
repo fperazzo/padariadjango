@@ -1,0 +1,25 @@
+<!-- Estendemos do template base  -->
+{% extends "appprincipal/_layouts/base.html" %}
+
+<!-- Bloco de conteúdo da nossa página -->
+{% block conteudo %}
+
+<div class="container mt-3">
+    <h2><a>Contato:</a></h2>
+    </br>
+    <p class="mb-1">0800 771-7774
+    UOL SAC: www.uol.com.br/sac, tels. 4003-2002 e 0800 771-7774. Outros e-mails que podem ser úteis: Assessoria de
+    imprensa: imprensa@uol.com.br; Publicidade: publicidade@uol.com.br; Comércio eletrônico: comercio.eletronico@uol.com.br;
+    Redação da Folha.com: redacao.online@grupofolha.com.br. Agradecemos a sua colaboração.</p>
+<form>
+    <br>
+    <div class="form-group">
+        <label for="exampleFormControlFile1">Reclamação Enviar Arquivo:</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    </div>
+</form>
+
+</div>
+
+</div>
+{% endblock %}

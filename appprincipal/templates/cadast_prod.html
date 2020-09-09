@@ -1,0 +1,26 @@
+<!-- Estendemos do template base  -->
+{% extends "appprincipal/_layouts/base.html" %}
+
+{% load widget_tweaks %}
+
+<!-- Bloco de conteúdo da nossa página -->
+
+{% block conteudo %}
+
+
+
+<div class="container mt-3">
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label>Nome Tipo Produto</label>
+            {% render_field form.nmtipoproduto %}
+        </div>
+        <button type="submit">Cadastrar</button>
+
+    </form>
+</div>
+
+
+{% endblock %}
