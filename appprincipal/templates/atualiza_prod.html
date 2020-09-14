@@ -1,0 +1,47 @@
+<!-- Estendemos do template base  -->
+{% extends "appprincipal/_layouts/base.html" %}
+
+{% load widget_tweaks %}
+
+<!-- Bloco de conteúdo da nossa página -->
+
+{% block conteudo %}
+{% csrf_token %}
+
+
+<div class="container mt-3">
+    <!-- Nome tipo-->
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Nome Tipo do Produto</span>
+        </div>
+        {% render_field form.fktipoprod class+="form-control" %}
+    </div>
+
+    <!-- Nome produto -->
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Nome do Produto</span>
+        </div> {% render_field form.nmproduto class+="form-control" %}
+    </div>
+
+    <!-- Preço -->
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Preço</span>
+        </div> {% render_field form.precoprod class+="form-control" %}
+    </div>
+    <hr />
+    <div class="text-right">
+        <a href="{% url 'appprincipal:index' %}" class="btn btn-outline-primary">Voltar</a>
+        <button class="btn btn-primary">Enviar</button>
+    </div>
+    </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+{% endblock %}

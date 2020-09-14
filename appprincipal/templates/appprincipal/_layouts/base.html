@@ -23,36 +23,47 @@
   
   <body class="d-flex flex-column h-100">
     <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #808080;">
-      <div class="container">
-      <a class="navbar-brand" href="{% url 'appprincipal:index' %}">
-      <img src="{%static 'appprincipal/media/logo.jpg' %}" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-    Padaria Boa Sorte
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'appprincipal:index' %}">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'appprincipal:lista' %}">Minhas Vendas</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'appprincipal:nova_venda' %}">Nova Venda</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'appprincipal:tipoprod' %}">Novo Produto</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'appprincipal:cargo' %}">Cadastrar Funcionario</a>
-            </li>
-
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <img src="{%static 'appprincipal/media/logo.jpg' %}" width="30" height="30" class="d-inline-block align-top" alt=""
+    loading="lazy">
+  <a class="navbar-brand" href="{% url 'appprincipal:index' %}">Padaria Boa Sorte</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'appprincipal:index' %}">Minhas Vendas <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'appprincipal:nova_venda' %}">Nova Venda</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Produto
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'appprincipal:tipoprod' %}">Cadastrar Tipo de Produto</a>
+          <a class="dropdown-item" href="{% url 'appprincipal:produto' %}">Cadastrar Produto</a>
+          <a class="dropdown-item" href="{% url 'appprincipal:lista_produto' %}">Editar Produto</a>
         </div>
-      </div>
-    </nav>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Funcionario
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'appprincipal:cargo' %}">Cadastrar Cargo</a>
+          <a class="dropdown-item" href="{% url 'appprincipal:func_cad' %}">Cadastrar Funcionario</a>
+          <a class="dropdown-item" href="{% url 'appprincipal:lista_funcionarios' %}">Editar Funcionario</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
     </header>
 
 <!-- Begin page content -->

@@ -1,7 +1,28 @@
-<table>
-    <tbody> {% for funcionario in funcionarios %} <tr>
-            <td>{{ funcionario.nome }}</td>
-            <td>{{ funcionario.sobrenome }}</td>
-            </tr> {% endfor %} 
-    </tbody>
-</table>
+<!-- Estendemos do template base  -->
+{% extends "appprincipal/_layouts/base.html" %}
+
+
+{% load widget_tweaks %}
+
+<!-- Bloco de conteúdo da nossa página -->
+
+{% block conteudo %}
+{% csrf_token %}
+
+
+<div class="container mt-3">
+    <table>
+        <tbody> {% for funcionario in funcionarios %} <tr>
+                <td>{{ funcionario.nome }}</td>
+                <td>{{ funcionario.sobrenome }}</td>
+                <td>{{ funcionario.cpf }}</td>
+                <td>{{ funcionario.remuneracao }}</td>
+                <td><a href="{% url 'appprincipal:update_func' pk=funcionario.id %}">Atualizar</a></td>
+                <td><a href="{% url 'appprincipal:deleta_funcionario' pk=funcionario.id %}">.          Deletar</a></td>
+            </tr> {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}

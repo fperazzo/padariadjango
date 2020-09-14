@@ -52,7 +52,7 @@ class CargoCreateView(CreateView):
     template_name = "cadast_cargo.html"
     model = TipoCargo
     form_class = CargoForm
-    success_url = reverse_lazy("appprincipal:func_cad")
+    success_url = reverse_lazy("appprincipal:index")
 
 class FuncionarioCreateView(CreateView):
     template_name = "cadastrar_func.html"
@@ -90,7 +90,51 @@ class VendaDeleteView(DeleteView):
     context_object_name =  'produto'
     success_url = reverse_lazy("appprincipal:index")
 
+class VendaCreateView(CreateView):
+    template_name = "venda.html"
+    model = Venda_Produto
+    context_object_name =  'venda_produtos'
+    fields = '__all__'
+    success_url = reverse_lazy("appprincipal:index")
+
 class VendProdListView(ListView):
     template_name = "venda_prod.html"
     model = Venda_Produto
     context_object_name = "lista_venda"
+
+class FuncionarioUpdateView(UpdateView):
+    template_name = "atualiza_func.html"
+    model = Funcionario
+    context_object_name = "funcionario"
+    fields = '__all__'
+    success_url = reverse_lazy("appprincipal:lista_funcionarios")
+
+class ListaFuncionariosListView(ListView):
+    template_name = "funcionarios.html"
+    model = Funcionario
+    context_object_name = "funcionarios"
+
+class FuncionarioDeleteView(DeleteView):
+    template_name = "exclui_func.html"
+    model = Funcionario
+    context_object_name =  'funcionario'
+    success_url = reverse_lazy("appprincipal:lista_funcionarios")
+
+class ListaProdutoListView(ListView):
+    template_name = "produtos.html"
+    model = Produto
+    context_object_name = "produtos"
+
+class ProdutoUpdateView(UpdateView):
+    template_name = "atualiza_prod.html"
+    model = Produto
+    context_object_name = "produto"
+    fields = '__all__'
+    success_url = reverse_lazy("appprincipal:lista_produto")
+
+class ProdutoDeleteView(DeleteView):
+    template_name = "exclui_prod.html"
+    model = Produto
+    context_object_name =  'produto'
+    success_url = reverse_lazy("appprincipal:lista_produto")
+    
