@@ -1,1 +1,1 @@
-web: gunicorn padariadjango.wsgi
+web: gunicorn projpad.wsgi
