@@ -67,7 +67,6 @@ class Venda(models.Model):
 
 	vendedor = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
 
-	quantidade = models.FloatField()
 
 	dtcriacao = models.DateTimeField(editable=False)
 	dtmodificacao = models.DateTimeField(editable=False)
@@ -82,6 +81,9 @@ class Venda(models.Model):
 		return  'Venda '+ str(self.id) +' vendedor '+ str(self.vendedor)
 
 class Venda_Produto(models.Model):
+
+    quantidade = models.FloatField(default=1)
+
     fkvenda = models.ForeignKey(Venda, on_delete=models.CASCADE)
     fkproduto = models.ForeignKey(Produto, on_delete=models.CASCADE)
 

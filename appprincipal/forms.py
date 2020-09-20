@@ -5,61 +5,37 @@ class CargoForm(forms.ModelForm):
 
     class Meta:
         model = TipoCargo
-
-        fields = [
-            'nmtipocargo',
-        ]
+        fields = '__all__'
 
 class FuncionarioForm(forms.ModelForm):
 
     class Meta:
         model = Funcionario
-
-        fields = [
-            'fkcargo',
-            'nome',
-            'sobrenome',
-            'cpf',
-            'remuneracao',
-        ]
+        fields = '__all__'
 
 
 class RegistrarTipoProdutoForm(forms.ModelForm):
     
     class Meta:
         model = TipoProduto
-
-        fields = [
-            'nmtipoproduto',
-        ]
+        fields = '__all__'
 
 class RegistrarProdutoForm(forms.ModelForm):
     
     class Meta:
         model = Produto
+        fields = '__all__'
 
-        fields = [
-            'nmproduto',
-            'precoprod',
-            'fktipoprod',
-        ]
 class RegistrarVendaForm(forms.ModelForm):
     
     class Meta:
         model = Venda
-
-        fields = [
-            'vendedor',
-            'quantidade',
-        ]
+        fields = '__all__'
 
 class VendaForm(forms.ModelForm):
     class meta:
         model = Venda
-
-        fields = [
-            '__all__'
-        ]
+        fields = '__all__'
 
     def is_valid(self):
         valida = True
