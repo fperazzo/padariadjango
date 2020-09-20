@@ -1,16 +1,33 @@
 #from core.views import LocaisList, IndexTemplateView, LocalDetailView, RegCreateView, Pt1CreateView
-from appprincipal.views import IndexTemplateView
-from django.urls import path
 from . import views
+from appprincipal.views import IndexTemplateView,  AboutView, TermoView, PolView, ContView,  NewVendaCreateView, ProdListView, RegistrarTipoProdutoForm, Cadast_TipoProdCreateView
+from django.urls import path
+from appprincipal.views import *
 
 app_name = 'appprincipal'
 
 urlpatterns = [
+    path('', IndexTemplateView.as_view(), name = 'index'),
+    path('about/', AboutView.as_view(), name = "about"),
+    path('minhasvendas/', VendProdListView.as_view(), name="lista"),
+    path('cargo/funcionario', FuncionarioCreateView.as_view(), name="func_cad"),
+    path('cargo/', CargoCreateView.as_view(), name="cargo"),
+    path('novavenda/', NewVendaCreateView.as_view(), name ="nova_venda"),
+    path('novavenda/<pk>', VendaCreateView.as_view(), name ="cria_venda"),
+    path('termo_cond/', TermoView.as_view(), name="termo_cond"),
+    path('pol/', PolView.as_view(), name="pol"),
+    path('cont/', ContView.as_view(), name="cont"),
+    path('minhasvendas/excluir/<pk>', VendaDeleteView.as_view(), name = 'deleta_venda'),
+    path('tipoprod/', Cadast_TipoProdCreateView.as_view(), name="tipoprod"),
+    path('tipoprod/produto/', Cadast_ProdCreateView.as_view(), name = 'produto'),
+    path('produto/', ListaProdutoListView.as_view(), name = 'lista_produto'),
+    path('produto/<pk>', ProdutoUpdateView.as_view(), name = 'update_prod'),
+    path('produto/excluir/<pk>', ProdutoDeleteView.as_view(), name = 'deleta_prod'),
+    path('listavenda/', VendProdListView.as_view(), name="lista_venda"),
+    path('funcionario/<pk>', FuncionarioUpdateView.as_view(), name="update_func"),
+    path('funcionario/', ListaFuncionariosListView.as_view(), name="lista_funcionarios"),
+    path('funcionario/excluir/<pk>', FuncionarioDeleteView.as_view(), name = 'deleta_funcionario')
 
 
-    path('', IndexTemplateView.as_view(), name="index"),
-    # path('lorcchave/', views.lista_orc_chave, name="lista_orc_chave"),
-    # path('pt1/', views.pt1_new, name='pt1'),
-
-
- ]
+    
+]

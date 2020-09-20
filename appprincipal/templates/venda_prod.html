@@ -1,0 +1,21 @@
+<!-- Estendemos do template base  -->
+{% extends "appprincipal/_layouts/base.html" %}
+
+<!-- Bloco de conteúdo da nossa página -->
+{% load widget_tweaks %}
+
+{% block conteudo %}
+
+
+<table>
+    <tbody> {% for lista_venda in lista_vendas %} <tr>
+            <td>{{ lista_venda.fkvenda }}</td>
+        </tr>
+    </tbody>
+    <td>{ lista_venda.fkvenda }</td>
+    </tr> {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

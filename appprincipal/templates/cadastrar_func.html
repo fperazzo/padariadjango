@@ -1,0 +1,40 @@
+<!-- Estendemos do template base  -->
+{% extends "appprincipal/_layouts/base.html" %}
+
+{% load widget_tweaks %}
+
+<!-- Bloco de conteúdo da nossa página -->
+
+    {% block conteudo %}
+
+
+
+    <div class="container mt-3">
+        <form method="post">
+             {% csrf_token %}
+            <div class="form-group">
+            <label>Cargo</label>
+                {% render_field form.fkcargo %}
+            <div class="form-group">
+                <label>Nome</label>
+                {% render_field form.nome %}
+            </div>
+            <div class="form-group">
+                <label>Sobrenome</label>
+                {% render_field form.sobrenome %}
+            </div>
+            <div class="form-group">
+                <label>CPF</label>
+                {% render_field form.cpf %}
+            </div>
+            <div class="form-group">
+                <label>remuneracao</label>
+                {% render_field form.remuneracao %}
+            </div>
+        <button type="submit">Cadastrar</button> 
+
+        </form>
+    </div>
+
+
+        {% endblock %}

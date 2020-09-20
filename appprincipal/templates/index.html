@@ -1,6 +1,8 @@
 
-<!-- Estendemos do template base -->
+
+<!-- Estendemos do template base  -->
 {% extends "appprincipal/_layouts/base.html" %}
+
 
 <!-- Bloco que define o <title></title> da nossa página -->
 {% block title %}Página Inicial{% endblock %}
@@ -9,12 +11,9 @@
 {% block conteudo %}
 
 <div class="container mt-5">
-<h2><a href="#">Seja Bem Vindo!!!</a></h2>
+<h2><a href="{% url 'appprincipal:about' %}">Seja Bem Vindo!!!</a></h2>
 </br>
-	<p class="mb-3">{% lorem %}</p>
-	<p class="mb-3">{% lorem %}</p>
-	<p class="mb-3">{% lorem %}</p>
-	<p class="mb-3">{% lorem %}</p>
+	<p class="mb-3">SISTEMA DE CONTROLE PADARIA</p>
 
- </div>
+
 {% endblock %}
